@@ -156,15 +156,44 @@ function displayCharacter(characterId, characterType) {
     return;
   }
 
+  // Helper to normalize arrays of strings or objects
+  function normalizeAbilityList(items, dataDict) {
+    if (!items || items.length === 0) return [];
+    return items.map(item => {
+      if (typeof item === 'string') {
+        // Try to find the object in the dataDict by name
+        const obj = dataDict && dataDict[item] ? dataDict[item] : (dataDict && dataDict[item.split(' (')[0]] ? dataDict[item.split(' (')[0]] : null);
+        return obj ? { name: item, description: obj.desc || obj.description || '' } : { name: item, description: '' };
+      } else if (item && typeof item === 'object') {
+        return item;
+      } else {
+        return { name: String(item), description: '' };
+      }
+    });
+  }
+
+  let periciasList, vantagensList, desvantagensList, tecnicasList;
+  if (characterType === 'bestiary' || characterType === 'player' || characterType === 'npc') {
+    periciasList = normalizeAbilityList(character.pericias, periciasData);
+    vantagensList = normalizeAbilityList(character.vantagens, vantagensData);
+    desvantagensList = normalizeAbilityList(character.desvantagens, desvantagensData);
+    tecnicasList = normalizeAbilityList(character.tecnicas, tecnicasData);
+  } else {
+    periciasList = character.pericias;
+    vantagensList = character.vantagens;
+    desvantagensList = character.desvantagens;
+    tecnicasList = character.tecnicas;
+  }
+
   const createListHtml = (items) => {
     if (!items || items.length === 0) return "Nenhuma";
     return items.map(item => createAbilitySpan(item.name, item.description || item.desc)).join(', ');
   };
 
-  let periciasHtml = createListHtml(character.pericias);
-  let vantagensHtml = createListHtml(character.vantagens);
-  let tecnicasHtml = createListHtml(character.tecnicas);
-  let desvantagensHtml = createListHtml(character.desvantagens);
+  let periciasHtml = createListHtml(periciasList);
+  let vantagensHtml = createListHtml(vantagensList);
+  let tecnicasHtml = createListHtml(tecnicasList);
+  let desvantagensHtml = createListHtml(desvantagensList);
 
   const iconMap = { "Poder": "fa-hand-fist", "Habilidade": "fa-brain", "Resistência": "fa-shield-halved", "Pontos de Vida": "fa-heart-pulse", "Pontos de Mana": "fa-wand-magic-sparkles", "Pontos de Ação": "fa-bolt" };
   const stats = character.stats;
@@ -439,6 +468,32 @@ function rollDice(numDice) {
   `;
 }
 
+function generateNPC() {
+  if (!npcData || npcData.length === 0) {
+    document.getElementById('npc-result').innerHTML = '<p class="text-error">Nenhum NPC disponível.</p>';
+    return;
+  }
+  const randomIndex = Math.floor(Math.random() * npcData.length);
+  const npc = npcData[randomIndex];
+  const stats = npc.stats || {};
+  const iconMap = { "Poder": "fa-hand-fist", "Habilidade": "fa-brain", "Resistência": "fa-shield-halved", "Pontos de Vida": "fa-heart-pulse", "Pontos de Mana": "fa-wand-magic-sparkles", "Pontos de Ação": "fa-bolt" };
+  const statsHtml = Object.entries(stats).map(([statName, statValue]) => {
+    const iconClass = iconMap[statName] || 'fa-question-circle';
+    return `<span class="inline-flex items-center gap-x-1 mr-3"><i class="fa-solid ${iconClass} fa-fw text-accent"></i> <span class="font-bold">${statValue}</span> <span class="text-xs text-secondary">${statName}</span></span>`;
+  }).join('');
+  const imgHtml = npc.image ? `<img src="img/${npc.image}" alt="${npc.name}" class="w-24 h-24 object-cover rounded-full shadow mb-2">` : '';
+  document.getElementById('npc-result').innerHTML = `
+    <div class="flex flex-col items-center">
+      ${imgHtml}
+      <h3 class="text-lg font-bold text-accent mb-1">${npc.name}</h3>
+      <p class="text-sm text-secondary mb-2">${npc.archetype} &bull; ${npc.pontos || ''}</p>
+      <p class="text-sm text-secondary mb-2 italic">${npc.concept || ''}</p>
+      <div class="mb-2">${statsHtml}</div>
+      <div class="text-xs text-slate-500">Dica: clique novamente para outro NPC!</div>
+    </div>
+  `;
+}
+
 // --- INICIALIZAÇÃO ---
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -472,4 +527,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Carrega os dados iniciais
   fetchAllData();
+
+  // Ativa a seção 'Testes' (basico) por padrão ao carregar a página
+  const basicoBtn = document.querySelector('.nav-btn[data-target="basico"]');
+  if (basicoBtn) {
+    basicoBtn.click();
+  }
 });
