@@ -70,7 +70,7 @@ body {
     }
 
     .text-accent {
-      color: #b45309;
+      color: #FFB200;
     }
 
     /* amber-700 */
@@ -87,13 +87,13 @@ body {
     }
 
     .nav-btn:hover {
-      background-color: #f59e0b;
+      background-color: #FFB200;
       /* amber-500 */
       color: #ffffff;
     }
 
     .nav-btn.active {
-      background-color: #f59e0b;
+      background-color: #FFB200;
       /* amber-500 */
       color: #ffffff;
       font-weight: 600;
@@ -153,14 +153,14 @@ body {
 
     /* --- Listas e Itens Interativos --- */
     .list-item:hover {
-      background-color: #fef3c7;
+      background-color: #FFB200;
       /* amber-100 */
     }
 
     .list-item.active {
-      background-color: #fef3c7;
+      background-color: #FFB200;
       /* amber-100 */
-      color: #92400e;
+      color: #FFB200;
       /* amber-800 */
       font-weight: 600;
     }
@@ -241,7 +241,7 @@ body {
 
       /* slate-300 */
       .text-accent {
-        color: #f59e0b;
+        color: #FFB200;
       }
 
       /* amber-500 */
@@ -258,14 +258,14 @@ body {
       }
 
       .nav-btn:hover {
-        background-color: #f59e0b;
+        background-color: #FFB200;
         /* amber-500 */
         color: #1e293b;
         /* slate-800 */
       }
 
       .nav-btn.active {
-        background-color: #f59e0b;
+        background-color: #FFB200;
         /* amber-500 */
         color: #1e293b;
         /* slate-800 */
