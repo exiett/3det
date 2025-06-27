@@ -266,125 +266,59 @@ body {
 
     @media (prefers-color-scheme: dark) {
       body {
-        background-color: #0f172a;
-        /* slate-900 */
-        color: #cbd5e1;
-        /* slate-300 */
-      }
-
-      /* --- Tipografia (Dark) --- */
-      .text-primary,
-      h1,
-      h2,
-      h3,
-      h4,
-      strong,
-      .font-semibold {
+        background-color: #282828 !important;
         color: #f1f5f9;
       }
-
-      /* slate-100 */
-      .text-secondary,
-      p,
-      td,
-      li,
-      dt,
-      dd {
-        color: #cbd5e1;
+      .info-card, .dynamic-panel, .book-page, .table-header {
+        background-color: #232323 !important;
+        color: #f1f5f9;
       }
-
-      /* slate-300 */
+      .text-primary,
+      header h1 {
+        color: #FFB200 !important;
+      }
+      .text-secondary {
+        color: #e2e8f0;
+      }
       .text-accent {
-        color: #FFB200;
+        color: #FFB200 !important;
       }
-
-      /* amber-500 */
       .text-error {
         color: #f87171;
       }
-
-      /* --- Componentes de Navegação (Dark) --- */
       .nav-btn {
-        background-color: #1e293b;
-        /* slate-800 */
-        color: #cbd5e1;
-        /* slate-300 */
+        background-color: #232323;
+        color: #f1f5f9;
       }
-
-      .nav-btn:hover {
+      .nav-btn:hover, .nav-btn.active {
         background-color: #FFB200;
-        /* amber-500 */
-        color: #1e293b;
-        /* slate-800 */
+        color: #232323;
       }
-
-      .nav-btn.active {
-        background-color: #FFB200;
-        /* amber-500 */
-        color: #1e293b;
-        /* slate-800 */
-      }
-
-      /* --- Cards e Painéis (Dark) --- */
       .info-card {
-        background-color: #1e293b;
-        /* slate-800 */
-        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+        background-color: #232323;
       }
-
-      .table-header {
-        background-color: #334155;
-        /* slate-700 */
-      }
-
       .dynamic-panel {
-        background-color: #0f172a;
-        /* slate-900 */
+        background-color: #232323;
       }
+      .table-header {
+        background-color: #383838;
+      }
+    }
 
-      .dice-span {
-        background-color: #000000;
-        color: #FFB200;
-      }
+    header h1 {
+      display: flex;
+      align-items: center;
+      color: #FFB200;
+      font-family: 'Bangers', cursive;
+      font-size: 2.5rem;
+      gap: 1rem;
+    }
 
-      /* --- Estilos do Livro Digital (Dark) --- */
-      .book-page {
-        background-color: #1e293b;
-        color: #cbd5e1;
-        border-color: #334155;
-      }
-
-      .book-page h1,
-      .book-page h2,
-      .book-page h3 {
-        color: #f59e0b;
-      }
-
-      /* --- Listas e Itens Interativos (Dark) --- */
-      .list-item:hover {
-        background-color: #475569;
-        /* slate-600 */
-      }
-
-      .list-item.active {
-        background-color: #92400e;
-        /* amber-800 */
-        color: #fef3c7;
-        /* amber-100 */
-      }
-
-      /* --- Imagem Placeholder (Dark) --- */
-      img.placeholder-img {
-        background-color: #334155;
-        /* slate-700 */
-      }
-
-      .border-b,
-      .border-l-2,
-      .border {
-        border-color: #334155;
-        /* slate-700 */
-      }
+    .header-logo {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      margin-right: 0.5rem;
     }
 
 /* --- Estilos do Tracker de Encontros --- */
