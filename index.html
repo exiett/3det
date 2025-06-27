@@ -100,8 +100,8 @@
                   <tbody>
                     <tr class="border-b">
                       <td class="py-2 font-semibold flex items-center gap-x-2"><i
-                          class="fa-solid fa-calculator fa-fw text-slate-500"></i><span>Fórmula do Teste</span></td>
-                      <td class="py-2">Atributo + (1d6 a 3d6) vs. Meta</td>
+                          class="fa-solid fa-calculator fa-fw text-slate-500"></i><span>Quantos dados rolar?</span></td>
+                      <td class="py-2">1d6 + Atributo</td>
                     </tr>
                     <tr class="border-b">
                       <td class="py-2 font-semibold flex items-center gap-x-2"><i
@@ -126,12 +126,12 @@
                     <tr class="border-b">
                       <td class="py-2 font-semibold flex items-center gap-x-2"><i
                           class="fa-solid fa-star fa-fw text-yellow-500"></i><span>Acerto Crítico</span></td>
-                      <td class="py-2">Resultado 6 no dado. Permite <strong>somar o Atributo de novo</strong>.</td>
+                      <td class="py-2">Resultado 6 é um crítico. Para cada resultado 6, <strong>some novamente o atributo testado</strong>.</td>
                     </tr>
                     <tr>
                       <td class="py-2 font-semibold flex items-center gap-x-2"><i
                           class="fa-solid fa-skull-crossbones fa-fw text-slate-500"></i><span>Falha Crítica</span></td>
-                      <td class="py-2">Todos os dados resultam 1. Consequência narrativa.</td>
+                      <td class="py-2">Resultado 1 em todos os dados do teste. Consequência narrativa e Perda em teste posterior (critério do Mestre).</td>
                     </tr>
                   </tbody>
                 </table>
@@ -271,8 +271,7 @@
             <ol class="space-y-3">
               <li class="flex items-start gap-x-2">
                 <i class="fa-solid fa-stopwatch fa-fw mt-1 text-slate-500"></i>
-                <span><strong>Iniciativa:</strong> Teste de <strong>Habilidade</strong>. Personagens agem em ordem
-                  decrescente.</span>
+                <span><strong>Iniciativa:</strong> 1d6 +  <strong>Habilidade</strong>, 2d6 + Habilidade se tiver <strong>Luta</strong>.</span>
               </li>
               <li class="flex items-start gap-x-2">
                 <i class="fa-solid fa-rotate fa-fw mt-1 text-slate-500"></i>
@@ -302,14 +301,13 @@
               <tbody>
                 <tr class="border-b">
                   <td class="p-2 font-semibold flex items-center gap-x-2"><i
-                      class="fa-solid fa-khanda fa-fw text-slate-500"></i><span>Ataque (Padrão)</span></td>
-                  <td class="p-2">Teste de <strong>Poder</strong> (corpo a corpo) ou <strong>Habilidade</strong> (à
-                    distância).</td>
+                      class="fa-solid fa-khanda fa-fw text-slate-500"></i><span>Ataque</span></td>
+                  <td class="p-2">Teste de <strong>Poder.</strong></td>
                 </tr>
                 <tr class="border-b">
                   <td class="p-2 font-semibold flex items-center gap-x-2"><i
-                      class="fa-solid fa-shield-halved fa-fw text-slate-500"></i><span>Defesa (Padrão)</span></td>
-                  <td class="p-2">Teste de <strong>Resistência</strong>.</td>
+                      class="fa-solid fa-shield-halved fa-fw text-slate-500"></i><span>Defesa</span></td>
+                  <td class="p-2">Teste de <strong>Resistência.</strong></td>
                 </tr>
                 <tr class="border-b">
                   <td class="p-2 font-semibold flex items-center gap-x-2"><i
@@ -321,12 +319,12 @@
                     <i class="fa-solid fa-heart fa-fw text-primary"></i>
                     <span>Dano Mínimo</span>
                   </td>
-                  <td class="p-2">Todo ataque bem-sucedido causa pelo menos <strong>1 PV</strong>.</td>
+                  <td class="p-2">Todo ataque causa pelo menos <strong>1 PV</strong>.</td>
                 </tr>
                 <tr>
                   <td class="p-2 font-semibold flex items-center gap-x-2"><i
                       class="fa-solid fa-shield-heart fa-fw text-green-600"></i><span>Defesa Perfeita</span></td>
-                  <td class="p-2">Defesa dobra o valor do Ataque. Dano é <strong>zero</strong>.</td>
+                  <td class="p-2">Se rolagem de Defesa for o <strong>dobro</strong> do valor do Ataque, Dano causado é <strong>0</strong>.</td>
                 </tr>
               </tbody>
             </table>
@@ -356,9 +354,8 @@
                 </tr>
                 <tr>
                   <td class="p-2 font-semibold flex items-center gap-x-2"><i
-                      class="fa-solid fa-crosshairs fa-fw text-slate-500"></i><span>Ataque à Distância</span></td>
-                  <td class="p-2 text-right"><strong>Perda</strong> contra alvos <strong>Longe</strong> (sem Vantagem
-                    Alcance).</td>
+                      class="fa-solid fa-crosshairs fa-fw text-slate-500"></i><span>Ataque à alvo Longe</span></td>
+                  <td class="p-2 text-right">Sem a vantagem <strong>Alcance</strong>, a rolagem de ataque tem <strong>Perda</strong>.</td>
                 </tr>
               </tbody>
             </table>
@@ -418,58 +415,26 @@
       <section id="manobras" class="content-section">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-          <div class="info-card p-6 rounded-lg shadow">
-            <h2 class="text-xl font-bold mb-4 text-accent flex items-center gap-x-2">
-              <i class="fa-solid fa-star-of-life fa-fw"></i>
-              <span>Condições Comuns</span>
-            </h2>
-            <dl class="space-y-4">
-              <div>
-                <dt class="font-semibold flex items-center gap-x-2"><i
-                    class="fa-solid fa-person-falling fa-fw text-slate-500"></i><span>Caído</span></dt>
-                <dd class="text-sm text-secondary pl-6"><strong>Perda</strong> em todos os testes. Gasta um
-                  <strong>Movimento</strong> para se levantar.
-                </dd>
-              </div>
-              <div>
-                <dt class="font-semibold flex items-center gap-x-2"><i
-                    class="fa-solid fa-circle-question fa-fw text-slate-500"></i><span>Confuso</span></dt>
-                <dd class="text-sm text-secondary pl-6">Alvos de perícias/vantagens são escolhidos ao acaso.</dd>
-              </div>
-              <div>
-                <dt class="font-semibold flex items-center gap-x-2"><i
-                    class="fa-solid fa-face-dizzy fa-fw text-slate-500"></i><span>Derrotado</span></dt>
-                <dd class="text-sm text-secondary pl-6"><strong>Perda</strong> em todos os testes e não consegue acertos
-                  críticos.</dd>
-              </div>
-              <div>
-                <dt class="font-semibold flex items-center gap-x-2"><i
-                    class="fa-solid fa-user-slash fa-fw text-slate-500"></i><span>Desprevenido</span></dt>
-                <dd class="text-sm text-secondary pl-6"><strong>Perda</strong> nos testes de defesa.</dd>
-              </div>
-              <div>
-                <dt class="font-semibold flex items-center gap-x-2"><i
-                    class="fa-solid fa-user-xmark fa-fw text-slate-500"></i><span>Indefeso</span></dt>
-                <dd class="text-sm text-secondary pl-6">Não rola dados na defesa. Ataques contra o alvo têm
-                  <strong>Ganho</strong>.
-                </dd>
-              </div>
-              <div>
-                <dt class="font-semibold flex items-center gap-x-2"><i
-                    class="fa-solid fa-handcuffs fa-fw text-slate-500"></i><span>Paralisado</span></dt>
-                <dd class="text-sm text-secondary pl-6">Fica <strong>Indefeso</strong> e não pode realizar ações ou
-                  movimentos.</dd>
-              </div>
-            </dl>
-          </div>
-
           <div class="space-y-6">
             <div class="info-card p-6 rounded-lg shadow">
               <h2 class="text-xl font-bold mb-4 text-accent flex items-center gap-x-2">
                 <i class="fa-solid fa-person-burst fa-fw"></i>
-                <span>Manobras de Combate (1 Ação)</span>
+                <span>Manobras de Combate</span>
               </h2>
               <dl class="space-y-4">
+                <div>
+                  <dt class="font-semibold flex items-center gap-x-2"><i
+                      class="fa-solid fa-khanda fa-fw text-slate-500"></i><span>Adiar Ação</span></dt>
+                  <dd class="text-sm text-secondary pl-6">Guarda a Ação para mais tarde.
+                    <strong>Iniciativa</strong> nova fica abaixo do turno onde a ação foi usada.
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-semibold flex items-center gap-x-2"><i
+                      class="fa-solid fa-user-group fa-fw text-slate-500"></i><span>Agarrão</span></dt>
+                  <dd class="text-sm text-secondary pl-6">Ao invés de causar dano, o ataque  <strong>agarra</strong> o alvo.
+                    Vítima fica imobilizada e com <strong>Perda</strong> para atacar.</dd>
+                </div>
                 <div>
                   <dt class="font-semibold flex items-center gap-x-2"><i
                       class="fa-solid fa-khanda fa-fw text-slate-500"></i><span>Ataque Total</span></dt>
@@ -479,15 +444,16 @@
                 </div>
                 <div>
                   <dt class="font-semibold flex items-center gap-x-2"><i
-                      class="fa-solid fa-shield-halved fa-fw text-slate-500"></i><span>Defesa Total</span></dt>
-                  <dd class="text-sm text-secondary pl-6">Recebe <strong>Ganho</strong> em todas as jogadas de defesa
-                    até seu próximo turno.</dd>
+                      class="fa-solid fa-khanda fa-fw text-slate-500"></i><span>Ataque Concentrado</span></dt>
+                  <dd class="text-sm text-secondary pl-6">1 ação + 1 PM = +1 Poder por rodada se concentrando.
+                    Não pode realizar ações ou movimentos e também é considerado <strong>Indefeso</strong>.
+                  </dd>
                 </div>
                 <div>
                   <dt class="font-semibold flex items-center gap-x-2"><i
-                      class="fa-solid fa-user-group fa-fw text-slate-500"></i><span>Agarrão</span></dt>
-                  <dd class="text-sm text-secondary pl-6">Teste de <strong>Poder</strong> vs. <strong>Poder</strong>.
-                    Vítima fica imobilizada e com <strong>Perda</strong> para atacar.</dd>
+                      class="fa-solid fa-shield-halved fa-fw text-slate-500"></i><span>Defesa Total</span></dt>
+                  <dd class="text-sm text-secondary pl-6">Recebe <strong>Ganho</strong> em todas as jogadas de defesa
+                    até seu próximo turno.</dd>
                 </div>
                 <div>
                   <dt class="font-semibold flex items-center gap-x-2"><i
@@ -524,6 +490,50 @@
                 </div>
               </dl>
             </div>
+          </div>
+
+          <div class="info-card p-6 rounded-lg shadow">
+            <h2 class="text-xl font-bold mb-4 text-accent flex items-center gap-x-2">
+              <i class="fa-solid fa-star-of-life fa-fw"></i>
+              <span>Condições Comuns</span>
+            </h2>
+            <dl class="space-y-4">
+              <div>
+                <dt class="font-semibold flex items-center gap-x-2"><i
+                    class="fa-solid fa-person-falling fa-fw text-slate-500"></i><span>Caído</span></dt>
+                <dd class="text-sm text-secondary pl-6"><strong>Perda</strong> em todos os testes. Gasta um
+                  <strong>Movimento</strong> para se levantar.
+                </dd>
+              </div>
+              <div>
+                <dt class="font-semibold flex items-center gap-x-2"><i
+                    class="fa-solid fa-circle-question fa-fw text-slate-500"></i><span>Confuso</span></dt>
+                <dd class="text-sm text-secondary pl-6">Alvos de perícias/vantagens são escolhidos ao acaso.</dd>
+              </div>
+              <div>
+                <dt class="font-semibold flex items-center gap-x-2"><i
+                    class="fa-solid fa-face-dizzy fa-fw text-slate-500"></i><span>Derrotado</span></dt>
+                <dd class="text-sm text-secondary pl-6"><strong>Perda</strong> em todos os testes e não consegue acertos
+                  críticos.</dd>
+              </div>
+              <div>
+                <dt class="font-semibold flex items-center gap-x-2"><i
+                    class="fa-solid fa-user-slash fa-fw text-slate-500"></i><span>Desprevenido</span></dt>
+                <dd class="text-sm text-secondary pl-6"><strong>Perda</strong> nos testes de defesa.</dd>
+              </div>
+              <div>
+                <dt class="font-semibold flex items-center gap-x-2"><i
+                    class="fa-solid fa-user-xmark fa-fw text-slate-500"></i><span>Indefeso</span></dt>
+                <dd class="text-sm text-secondary pl-6">Não rola dados na defesa. Defesa é apenas o valor da Resistência.
+                </dd>
+              </div>
+              <div>
+                <dt class="font-semibold flex items-center gap-x-2"><i
+                    class="fa-solid fa-handcuffs fa-fw text-slate-500"></i><span>Paralisado</span></dt>
+                <dd class="text-sm text-secondary pl-6">Fica <strong>Indefeso</strong> e não pode realizar ações ou
+                  movimentos.</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </section>
@@ -712,9 +722,6 @@
       </section>
     </main>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="supabase-client.js"></script>
   <script src="script.js"></script>
 </body>
 

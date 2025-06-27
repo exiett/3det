@@ -1,8 +1,9 @@
 {
-  "devDependencies": {
-    "supabase": "^2.26.9"
-  },
-  "dependencies": {
-    "@supabase/supabase-js": "^2.50.2"
+  "name": "3det-escudo-mestre",
+  "version": "1.0.0",
+  "description": "Digital GM Screen for 3DeT Victory RPG",
+  "scripts": {
+    "serve": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000"
   }
 }

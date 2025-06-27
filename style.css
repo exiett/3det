@@ -118,8 +118,8 @@ body {
     }
 
     .dice-span {
-      background-color: #ffffff;
-      color: #1e293b;
+      background-color: #000000;
+      color: #FFB200;
       box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     }
 
@@ -194,16 +194,70 @@ body {
       animation: fadeIn 0.5s ease-in-out;
     }
 
+    .rule-content {
+      display: none;
+    }
+
+    .rule-content:not(.hidden) {
+      display: block;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
     @keyframes fadeIn {
       from {
         opacity: 0;
         transform: translateY(10px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
       }
+    }
+
+    /* --- Estilos para Regras --- */
+    #regras-nav button {
+      transition: all 0.3s ease;
+    }
+
+    #regras-nav button:hover {
+      transform: translateY(-2px);
+    }
+
+    #regras-nav button.active {
+      background-color: #f59e0b;
+      color: white;
+      font-weight: 600;
+    }
+
+    #regras-search-input:focus {
+      outline: none;
+      border-color: #f59e0b;
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+    }
+
+    /* --- Estilos para Listas de Regras --- */
+    .rule-content dl {
+      max-height: 600px;
+      overflow-y: auto;
+    }
+
+    .rule-content dt {
+      border-left: 4px solid #f59e0b;
+      padding-left: 1rem;
+    }
+
+    .rule-content dd {
+      margin-left: 0;
+    }
+
+    /* --- Estilos para Busca --- */
+    #regras-search-results {
+      max-height: 600px;
+      overflow-y: auto;
+    }
+
+    #regras-search-results dl {
+      max-height: none;
     }
 
     /* ==========================================================================
@@ -289,9 +343,8 @@ body {
       }
 
       .dice-span {
-        background-color: #334155;
-        /* slate-700 */
-        color: #f1f5f9;
+        background-color: #000000;
+        color: #FFB200;
       }
 
       /* --- Estilos do Livro Digital (Dark) --- */
